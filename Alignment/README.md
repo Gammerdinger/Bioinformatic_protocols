@@ -161,7 +161,7 @@ Then, you can run `Kallisto` using:
 
 `kallisto quant -i <Index> -o <Output_directory> <Left_reads.fastq> <Right_reads.fastq>`
 
->-i <Index> Full path to the Kallisto index will be
+>-i \<Index> Full path to the Kallisto index will be
 >
 >-o <Output_directory> Full path to the directory of where the Kallisto output should go
 >
