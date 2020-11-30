@@ -151,7 +151,7 @@ I use `Kallisto` for most of the short-read RNA alignment that I do. However, it
 
 `kallisto index -i <Index> <Refernce.fasta>`
 
->-i <Index> Full path to the Kallisto index will be
+>-i \<Index> Full path to the Kallisto index will be
 >
 ><Refernce.fasta> This is the path to the reference FASTA file.
 >
