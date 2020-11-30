@@ -124,3 +124,11 @@ Then you can carry the alignment using the same options as `bowtie2`:
 >--rg SM:<RGSM> This is to mark which sample your reads are coming from. Note, this **does not** need to be unique like the ID field since you may have multiple read groups coming from a single sample. Note: I have not tested this option.
 >
 >-S <Alignment.sam> This is the path and file that you would like to write the alignments to. Note that this is a SAM file which are suaully quite large.
+
+## RNA-Seq Specific Aligners
+
+### Kallisto
+
+### Sailfish
+
+# Long-read Alignment
