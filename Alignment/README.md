@@ -6,6 +6,14 @@
 
 For several downstream software packages, read groups are sometimes required. As such, I generally add them as I do the alignment in bwa-mem however you can also add them in Picard. That method can be found at:
 
+Before carrying out an alignment with `bwa` you are going to need to index your reference genome using the following command:
+
+`bwa index <reference.fasta>`
+
+><reference.fasta>: This is the path to the reference FASTA file.
+
+After the indexing has run, you will find several files with your FASTA file name along different sufficies
+
 #### mem
 
 For most paired-end short-read alignment, I use `bwa mem`. The syntax that I generally use is:
@@ -32,7 +40,7 @@ Options that I employ:
 >>
 >>SM: This is to mark which sample your reads are coming from. Note, this **does not** need to be unique like the ID field since you may have multiple read groups coming from a single sample
 >
->-M <reference.fasta>: This is the path to the reference fasta file. Your index file should also be located here.
+>-M <reference.fasta>: This is the path to the reference FASTA file. Your index file should also be located here.
 >
 ><Left_reads.fastq> <Right_reads.fastq>/<Reads.fastq>: This is the path the the reads you would like to align to the reference genome.
 >
