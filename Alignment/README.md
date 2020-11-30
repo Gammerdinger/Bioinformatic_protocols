@@ -8,6 +8,23 @@ For several downstream software packages, read groups are sometimes required. As
 
 #### bwa mem
 
-For most short-read alignment, I use `bwa mem`. The syntax that I generally use is:
+For most paired-end short-read alignment, I use `bwa mem`. The syntax that I generally use is:
 
-`bwa mem -t 20 -R '@RG\tID:S_melanotheron_females\tLB:S_melanotheron_females\tPL:illumina\tPU:WJG\tSM:S_melanotheron_females' -M /lustre/cichlid-labs/reference_assemblies/O_niloticus_UMD1/O_niloticus_UMD1.fasta /lustre/wgammerd/fastq_files/S_melanotheron/S_melanotheronFemales_R1_combined.fastq /lustre/wgammerd/fastq_files/S_melanotheron/S_melanotheronFemales_R2_combined.fastq > /lustre/wgammerd/alignments/bwa/S_melanotheron_PBA/S_melanotheron_female_bwa_PBA.sam`
+`bwa mem -t <threads> -R '@RG\tID:<RGID>\tLB:<RGLB>\tPL:<RGPL>\tPU:<RGPU>\tSM:<RGSM>' -M <reference.fasta> <Left_reads.fastq> <Right_reads.fastq> > <Alignment.sam>`
+
+For single-end short read-alignment, I generally use:
+
+`bwa mem -t <threads> -R '@RG\tID:<RGID>\tLB:<RGLB>\tPL:<RGPL>\tPU:<RGPU>\tSM:<RGSM>' -M <reference.fasta> <Reads.fastq> > <Alignment.sam>`
+
+Options that I employ:
+
+`-t <threads>: How many threads you'd like to use to process the data.
+-R 'Read group information': There are several parts to the read group information field. Different software packages using require different ones, but ID and SM are the most common.
+  ID: This **NEEDS** to be unique. This is the ID for this batch of reads.
+  LB: This is not used much, but the idea is if you ran, MarkDuplicates in Picard and you had run the same DNA library on multiple lanes. I usually just use the same tag as I use for the SM tag.
+  PL: This is the platform that the sequencing was run on. For aligning Illumina reads, you should use *ILLUMINA* here.
+  PU: This is the platform unit and it is ideally supposed to hold <FLOWCELL_BARCODE>.<LANE>.<SAMPLE_BARCODE>, where <FLOWCELL_BARCODE> is the barcode of the flowcell, <LANE> is the lane the data was run on and <SAMPLE_BARCODE> is supposed to be a library/sample specific identifer. That being said, you may not have this information and I have not found it to ever matter. For most practices, anything can go in this field.
+  SM: This is to mark which sample your reads are coming from. Note, this **does not** need to be unique like the ID field since you may have multiple read groups coming from a single sample
+-M <reference.fasta>: This is the path to the reference fasta file. Your index file should also be located here.
+<Left_reads.fastq> <Right_reads.fastq>/<Reads.fastq>: This is the path the the reads you would like to align to the reference genome.
+<Alignment.sam>: This is the path and file that you would like to write the alignments to. Note that this is a SAM file which are suaully quite large.`
