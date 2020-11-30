@@ -141,7 +141,7 @@ Another alignment option is `NextGenMap`. This software package indexes the geno
 > 
 >-o <Alignment.bam> Full path to the output BAM file.
 >
->-t <Threads>
+>-t <Threads> Number of threads you'd like to use.
 
 ## RNA-Seq Specific Aligners
 
