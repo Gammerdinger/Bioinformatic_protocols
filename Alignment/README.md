@@ -74,7 +74,7 @@ Now to run the alignment, you will need to use the following command:
 >
 >--very-sensitive I generally align with this setting. It translates into using the following options -D 20 -R 3 -N 0 -L 20 -i S,1,0.50. 
 >
->-p <Threads> Number of threads you'd like to use to process the data.
+>-p \<Threads> Number of threads you'd like to use to process the data.
 >
 >--rg-id <RGID> This is your read group ID and it **NEEDS** to be unique. This is the ID for this batch of reads. Note: I have not tested this option.
 >
@@ -111,7 +111,7 @@ Then you can carry the alignment using the same options as `bowtie2`:
 >
 >-2 <Right_reads.fastq> The full path to the right FASTQ reads.
 >
->-p <Threads> Number of threads you'd like to use to process the data.
+>-p \<Threads> Number of threads you'd like to use to process the data.
 >
 >--rg-id <RGID> This is your read group ID and it **NEEDS** to be unique. This is the ID for this batch of reads. Note: I have not tested this option.
 >
@@ -141,7 +141,7 @@ Another alignment option is `NextGenMap`. This software package indexes the geno
 > 
 >-o <Alignment.bam> Full path to the output BAM file.
 >
->-t <Threads> Number of threads you'd like to use.
+>-t \<Threads> Number of threads you'd like to use.
 
 ## RNA-Seq Specific Aligners
 
@@ -155,7 +155,7 @@ Another alignment package is `STAR`. Like the other alignment packages you first
 
 `STAR --runThreadN <Threads> --runMode genomeGenerate --genomeFastaFiles <Reference.fasta> --genomeDir <Directory_for_index> --limitGenomeGenerateRAM <RAM_allocation>`
 
->--runThreadN Number of threads you'd like to use.
+>--runThreadN \<Threads> Number of threads you'd like to use.
 >
 >--runMode genomeGenerate This is the option to make the index
 >
@@ -169,7 +169,7 @@ Now you can carry out the alignment with:
 
 `STAR --runThreadN <Threads> --genomeDir <Directory_for_index> --readFilesIn <Left_reads.fastq> <Right_reads.fastq> --outSAMtype BAM SortedByCoordinate --outFileNamePrefix <Output_prefix>`
 
->--runThreadN Number of threads you'd like to use.
+>--runThreadN \<Threads> Number of threads you'd like to use.
 >
 >--genomeDir <Directory_for_index> A directory with the index.
 >
@@ -191,7 +191,7 @@ Now you can carry out the alignment with:
 
 The options and input that I provide are:
 
->-t <Threads> Number of threads you'd like to use to process the data.
+>-t \<Threads> Number of threads you'd like to use to process the data.
 >  
 >-R 'Read group information': There are several parts to the read group information field. Different software packages using require different ones, but ID and SM are the most common.
 >>
