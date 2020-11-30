@@ -60,6 +60,8 @@ These inputs are:
 >
 ><reference_base> This is the full path to where you want the index (Ideally in the same directory as your reference FASTA file) and what you want the index to be called.
 
+The output from this should be several files with your reference_base followed by .bt2.
+
 Now to run the alignment, you will need to use the following command:
 
 `bowtie2 -x <reference_base> -1 <Left_reads.fastq> -2 <Right_reads.fastq> --very-sensitive -p <Threads> --rg-id <RGID> --rg LB:<RGLB> --rg PL:<RGPL> --rg PU:<RGPU> --rg SM:<RGSM> -S <Alignment.sam>`
@@ -97,17 +99,17 @@ These inputs are:
 >
 ><reference_base> This is the full path to where you want the index (Ideally in the same directory as your reference FASTA file) and what you want the index to be called.
 
+The output from this should be several files with your reference_base followed by .ht2.
+
 Then you can carry the alignment using the same options as `bowtie2`:
 
-`hisat2 -x <reference_base> -1 <Left_reads.fastq> -2 <Right_reads.fastq> --very-sensitive -p <Threads> --rg-id <RGID> --rg LB:<RGLB> --rg PL:<RGPL> --rg PU:<RGPU> --rg SM:<RGSM> -S <Alignment.sam>`
+`hisat2 -x <reference_base> -1 <Left_reads.fastq> -2 <Right_reads.fastq>-p <Threads> --rg-id <RGID> --rg LB:<RGLB> --rg PL:<RGPL> --rg PU:<RGPU> --rg SM:<RGSM> -S <Alignment.sam>`
 
 >-x This is the full path to the reference base that you made during the indexing process
 >
 >-1 <Left_reads.fastq> The full path to the left FASTQ reads.
 >
 >-2 <Right_reads.fastq> The full path to the right FASTQ reads.
->
->--very-sensitive I generally align with this setting. It translates into using the following options -D 20 -R 3 -N 0 -L 20 -i S,1,0.50. 
 >
 >-p <Threads> Number of threads you'd like to use to process the data.
 >
