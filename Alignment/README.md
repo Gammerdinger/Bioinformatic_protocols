@@ -20,11 +20,11 @@ After the indexing has run, you will find several files with your FASTA file nam
 
 For most paired-end short-read alignment, I use `bwa mem`. The syntax that I generally use is:
 
-`bwa mem -t <threads> -R '@RG\tID:<RGID>\tLB:<RGLB>\tPL:<RGPL>\tPU:<RGPU>\tSM:<RGSM>' -M <reference.fasta> <Left_reads.fastq> <Right_reads.fastq> > <Alignment.sam>`
+`bwa mem -t <Threads> -R '@RG\tID:<RGID>\tLB:<RGLB>\tPL:<RGPL>\tPU:<RGPU>\tSM:<RGSM>' -M <reference.fasta> <Left_reads.fastq> <Right_reads.fastq> > <Alignment.sam>`
 
 For single-end short read-alignment, I generally use:
 
-`bwa mem -t <threads> -R '@RG\tID:<RGID>\tLB:<RGLB>\tPL:<RGPL>\tPU:<RGPU>\tSM:<RGSM>' -M <reference.fasta> <Reads.fastq> > <Alignment.sam>`
+`bwa mem -t <Threads> -R '@RG\tID:<RGID>\tLB:<RGLB>\tPL:<RGPL>\tPU:<RGPU>\tSM:<RGSM>' -M <reference.fasta> <Reads.fastq> > <Alignment.sam>`
 
 The options and input that I provide are:
 
