@@ -21,11 +21,19 @@ Options that I employ:
 >-t <threads>: How many threads you'd like to use to process the data.
   
 >-R 'Read group information': There are several parts to the read group information field. Different software packages using require different ones, but ID and SM are the most common.
+
 >  ID: This **NEEDS** to be unique. This is the ID for this batch of reads.
+
 >  LB: This is not used much, but the idea is if you ran, MarkDuplicates in Picard and you had run the same DNA library on multiple lanes. I usually just use the same tag as I use for the SM tag.
+
 >  PL: This is the platform that the sequencing was run on. For aligning Illumina reads, you should use *ILLUMINA* here.
+
 >  PU: This is the platform unit and it is ideally supposed to hold <FLOWCELL_BARCODE>.<LANE>.<SAMPLE_BARCODE>, where <FLOWCELL_BARCODE> is the barcode of the flowcell, <LANE> is the lane the data was run on and <SAMPLE_BARCODE> is supposed to be a library/sample specific identifer. That being said, you may not have this information and I have not found it to ever matter. For most practices, anything can go in this field.
+
 >  SM: This is to mark which sample your reads are coming from. Note, this **does not** need to be unique like the ID field since you may have multiple read groups coming from a single sample
+
 >-M <reference.fasta>: This is the path to the reference fasta file. Your index file should also be located here.
+
 ><Left_reads.fastq> <Right_reads.fastq>/<Reads.fastq>: This is the path the the reads you would like to align to the reference genome.
+
 ><Alignment.sam>: This is the path and file that you would like to write the alignments to. Note that this is a SAM file which are suaully quite large.
