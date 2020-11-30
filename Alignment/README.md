@@ -19,6 +19,7 @@ For single-end short read-alignment, I generally use:
 Options that I employ:
 
 >-t <threads>: How many threads you'd like to use to process the data.
+  
 >-R 'Read group information': There are several parts to the read group information field. Different software packages using require different ones, but ID and SM are the most common.
 >  ID: This **NEEDS** to be unique. This is the ID for this batch of reads.
 >  LB: This is not used much, but the idea is if you ran, MarkDuplicates in Picard and you had run the same DNA library on multiple lanes. I usually just use the same tag as I use for the SM tag.
