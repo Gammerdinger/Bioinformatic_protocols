@@ -56,9 +56,9 @@ An alternative alignment software package you may be interested in running for s
 `bowtie2-build <reference.fasta> <reference_base>`
 
 These inputs are: 
-><reference.fasta>: This is the path to the reference FASTA file.
+><reference.fasta> This is the path to the reference FASTA file.
 >
-><reference_base>: This is the full path to where you want the index (Ideally in the same directory as your reference FASTA file) and what you want the index to be called.
+><reference_base> This is the full path to where you want the index (Ideally in the same directory as your reference FASTA file) and what you want the index to be called.
 
 Now to run the alignment, you will need to use the following command:
 
@@ -70,7 +70,7 @@ Now to run the alignment, you will need to use the following command:
 >
 >-2 <Right_reads.fastq> The full path to the right FASTQ reads.
 >
->--very-sensitive I generally align with this for the alignment. It translates into using the following options -D 20 -R 3 -N 0 -L 20 -i S,1,0.50. 
+>--very-sensitive I generally align with this setting. It translates into using the following options -D 20 -R 3 -N 0 -L 20 -i S,1,0.50. 
 >
 >-p <Threads> Number of threads you'd like to use to process the data.
 >
