@@ -92,10 +92,10 @@ Now to run the alignment, you will need to use the following command:
 
 From my understanding, the developers of `bowtie2` for the most part went on to develop `HISAT` and `HISAT2` and encourage its use. Most of its options are thus similar to `bowtie2`. Before running HISAT2, you will need to index your reference genome using the following command:
 
-`hisat2-build <reference.fasta> <reference_base>`
+`hisat2-build <Reference.fasta> <reference_base>`
 
 These inputs are: 
-><reference.fasta> This is the path to the reference FASTA file.
+><Reference.fasta> This is the path to the reference FASTA file.
 >
 ><reference_base> This is the full path to where you want the index (Ideally in the same directory as your reference FASTA file) and what you want the index to be called.
 
@@ -124,6 +124,30 @@ Then you can carry the alignment using the same options as `bowtie2`:
 >--rg SM:<RGSM> This is to mark which sample your reads are coming from. Note, this **does not** need to be unique like the ID field since you may have multiple read groups coming from a single sample. Note: I have not tested this option.
 >
 >-S <Alignment.sam> This is the path and file that you would like to write the alignments to. Note that this is a SAM file which are suaully quite large.
+
+### NextGenMap
+
+Another alignment option is `NextGenMap`. This software package indexes the genome when you carry out the alignment. The syntax for alignment is: 
+
+`ngm -r <Reference.fasta> -b -1 <Left_reads.fastq> -2 <Right_reads.fastq> -o <Alignment.bam> -t <Threads>`
+
+>-r <Reference.fasta> This is the path to the reference FASTA file.
+>
+>-b Output in BAM format.
+>
+>-1 <Left_reads.fastq> Full path to the left read FASTQ files.
+>
+>-2 <Right_reads.fastq> Full path to the right read FASTQ files.
+> 
+>-o <Alignment.bam> Full path to the output BAM file.
+>
+>-t <Threads>
+
+## RNA-Seq Specific Aligners
+
+### Kallisto
+
+### Sailfish
 
 ## STAR
 
@@ -157,12 +181,6 @@ Now you can carry out the alignment with:
 >
 >--outFileNamePrefix <Output_prefix> The full path to a the prefix you'd like to see the output files come out with.
 
-## RNA-Seq Specific Aligners
-
-### Kallisto
-
-### Sailfish
-
 # Pac-Bio Long-read Alignment
 
 ## bwa
@@ -193,3 +211,4 @@ The options and input that I provide are:
 ><Reads.fastq> This is the path the the FASTQ reads you would like to align to the reference genome.
 >
 ><Alignment.sam> This is the path and file that you would like to write the alignments to. Note that this is a SAM file which are suaully quite large.
+
