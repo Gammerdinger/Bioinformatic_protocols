@@ -6,7 +6,7 @@
 
 For several downstream software packages, read groups are sometimes required. As such, I generally add them as I do the alignment in bwa-mem however you can also add them in Picard. That method can be found at:
 
-#### bwa mem
+#### mem
 
 For most paired-end short-read alignment, I use `bwa mem`. The syntax that I generally use is:
 
