@@ -44,6 +44,6 @@ The options and input that I provide are:
 >
 >-M <reference.fasta>: This is the path to the reference FASTA file. Your index file should also be located here.
 >
-><Left_reads.fastq> <Right_reads.fastq>/<Reads.fastq>: This is the path the the reads you would like to align to the reference genome.
+><Left_reads.fastq> <Right_reads.fastq>/<Reads.fastq>: This is the path the the FASTQ reads you would like to align to the reference genome.
 >
 ><Alignment.sam>: This is the path and file that you would like to write the alignments to. Note that this is a SAM file which are suaully quite large.
