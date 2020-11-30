@@ -6,7 +6,7 @@ This is the command used to convert between your SAM and BAM files. The syntax f
 
 `samtools view -bS <Input.sam> > <Output.bam>`
 
->-bS Input format is SAM and the output format should be BAM
+>-bS Input format is SAM and the output format will be BAM
 >
 ><Input.sam> Full path to the input SAM file.
 >
