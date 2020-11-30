@@ -147,6 +147,28 @@ Another alignment option is `NextGenMap`. This software package indexes the geno
 
 ### Kallisto
 
+I use `Kallisto` for most of the short-read RNA alignment that I do. However, it automatically converts my data to TPM and doesn't give an intermediate alignment file. To use `Kallisto` you will first need to index your transcriptome using:
+
+`kallisto index -i <Index> <Refernce.fasta>`
+
+>-i <Index> Full path to the Kallisto index will be
+>
+><Refernce.fasta> This is the path to the reference FASTA file.
+>
+>-k <k-mer> While the default is 31-mer, you can alter the k-mer of the index
+  
+Then, you can run `Kallisto` using:
+
+`kallisto quant -i <Index> -o <Output_directory> <Left_reads.fastq> <Right_reads.fastq>`
+
+>-i <Index> Full path to the Kallisto index will be
+>
+>-o <Output_directory> Full path to the directory of where the Kallisto output should go
+>
+><Left_reads.fastq> Full path to the left read FASTQ files. 
+> 
+><Right_reads.fastq> Full path to the right read FASTQ files.
+
 ### Sailfish
 
 ## STAR
