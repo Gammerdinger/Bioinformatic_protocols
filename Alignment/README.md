@@ -10,6 +10,8 @@ Before carrying out an alignment with `bwa` you are going to need to index your 
 
 `bwa index <reference.fasta>`
 
+The input I provide is:
+
 ><reference.fasta>: This is the path to the reference FASTA file.
 
 After the indexing has run, you will find several files with your FASTA file name along different sufficies
@@ -24,7 +26,7 @@ For single-end short read-alignment, I generally use:
 
 `bwa mem -t <threads> -R '@RG\tID:<RGID>\tLB:<RGLB>\tPL:<RGPL>\tPU:<RGPU>\tSM:<RGSM>' -M <reference.fasta> <Reads.fastq> > <Alignment.sam>`
 
-Options that I employ:
+The options and input that I provide are:
 
 >-t <threads>: How many threads you'd like to use to process the data.
 >  
