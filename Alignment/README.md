@@ -169,11 +169,37 @@ Then, you can run `Kallisto` using:
 > 
 ><Right_reads.fastq> Full path to the right read FASTQ files.
 
-### Sailfish
+### Salmon
+
+An alternative alignment package for RNA-Seq data is `Salmon`. Like `Kallisto`, it will directly output TPM values without giving you the alignment file. First you will need to index your reference transcriptome using:
+
+`salmon index -t <Reference.fasta> -i <Index_directory> -k <kmer_length>`
+
+>-t <Reference.fasta> A full path to the reference FASTA file.
+>
+>-i <Index_directory> A full path to the directory where the index will be written.
+>
+>-k <kmer_length> Length of k-mer to use in the indexing
+
+Then, you can run `Sailfish` using:
+
+`salmon quant -p <Threads> -i <Index_directory> -l A -o <Output_directory> -1 <Left_reads.fastq> -2 <Right_reads.fastq>`
+
+>-p \<Threads>
+>
+>-i <Index_directory> A full path to the directory where the index is located.
+>
+>-l A Tells `Salmon` to determine the library type (Stranded vs. Unstranded)
+>
+>-o <Output_directory> Full path to the directory where the `Salmon` output will be placed.
+>
+>-1 <Left_reads.fastq> Full path to the left read FASTQ files. 
+>
+>-2 <Right_reads.fastq> Full path to the right read FASTQ files.
 
 ## STAR
 
-Another alignment package is `STAR`. Like the other alignment packages you first need to index the genome. You can index your genome using the following command:
+Another alignment package is `STAR`. Like the other alignment packages you first need to index the reference. You can index your genome using the following command:
 
 `STAR --runThreadN <Threads> --runMode genomeGenerate --genomeFastaFiles <Reference.fasta> --genomeDir <Directory_for_index> --limitGenomeGenerateRAM <RAM_allocation>`
 
