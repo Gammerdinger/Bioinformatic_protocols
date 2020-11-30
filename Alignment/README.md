@@ -28,7 +28,7 @@ For single-end short read-alignment, I generally use:
 
 The options and input that I provide are:
 
->-t <Threads> Number of threads you'd like to use to process the data.
+>-t \<Threads> Number of threads you'd like to use to process the data.
 >  
 >-R 'Read group information': There are several parts to the read group information field. Different software packages using require different ones, but ID and SM are the most common.
 >>
