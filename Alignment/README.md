@@ -125,6 +125,38 @@ Then you can carry the alignment using the same options as `bowtie2`:
 >
 >-S <Alignment.sam> This is the path and file that you would like to write the alignments to. Note that this is a SAM file which are suaully quite large.
 
+## STAR
+
+Another alignment package is `STAR`. Like the other alignment packages you first need to index the genome. You can index your genome using the following command:
+
+`STAR --runThreadN <Threads> --runMode genomeGenerate --genomeFastaFiles <Reference.fasta> --genomeDir <Directory_for_index> --limitGenomeGenerateRAM <RAM_allocation>`
+
+>--runThreadN Number of threads you'd like to use.
+>
+>--runMode genomeGenerate This is the option to make the index
+>
+>--genomeFastaFiles <Reference.fasta> This is the path to the reference FASTA file.
+>
+>--genomeDir <Directory_for_index> A directory to hold the index in.
+>
+>--limitGenomeGenerateRAM <RAM_allocation> This is in bytes. I think the only time I needed to run this I needed to increase this from the default of 31000000000 to 600000000000. This may not be needed for your genome. 
+
+Now you can carry out the alignment with:
+
+`STAR --runThreadN <Threads> --genomeDir <Directory_for_index> --readFilesIn <Left_reads.fastq> <Right_reads.fastq> --outSAMtype BAM SortedByCoordinate --outFileNamePrefix <Output_prefix>`
+
+>--runThreadN Number of threads you'd like to use.
+>
+>--genomeDir <Directory_for_index> A directory with the index.
+>
+>--readFilesIn <Left_reads.fastq> <Right_reads.fastq> This is the path the the FASTQ reads you would like to align to the reference genome.
+>
+>--outSAMtype BAM This software package allows you to output directly to BAM, which is a compressed version of your SAM files. However, `Samtools` allows for SAM<=>BAM conversion very easily.
+>
+>SortedByCoordinate This is a nice option so that it pre-sorts your alignment output. This ia a set that is usually done after alignment in Samtools.
+>
+>--outFileNamePrefix <Output_prefix> The full path to a the prefix you'd like to see the output files come out with.
+
 ## RNA-Seq Specific Aligners
 
 ### Kallisto
