@@ -137,7 +137,7 @@ Then you can carry the alignment using the same options as `bowtie2`:
 
 ### mem
 
-`bwa mem -t 20 -R '@RG\tID:<RGID>\tLB:<RGLB>\tPL:<RGPL>\tPU:<RGPU>\tSM:<RGSM>' -M <Reference.fasta> -x pacbio <Reads.fastq>  > <Alignment.sam>`
+`bwa mem -t <Threads> -R '@RG\tID:<RGID>\tLB:<RGLB>\tPL:<RGPL>\tPU:<RGPU>\tSM:<RGSM>' -M <Reference.fasta> -x pacbio <Reads.fastq>  > <Alignment.sam>`
 
 The options and input that I provide are:
 
